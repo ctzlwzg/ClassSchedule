@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../static/css/common/reset.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    .courseWrapper {
+      position: relative;
+      width: 70%;
+      padding-left: 50px;
+    }
+
+    .courses-head {
+      width: 100%;
+      background-color: #16baef;
+      border-top-right-radius: 10px;
+    }
+
+    .courses-head .week {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .courses-head .week li {
+      width: 14.28%;
+      padding: 10px 20px;
+      border-left: 2px solid;
+      text-align: center;
+      color: #fff;
+    }
+
+    .subject {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(22, 186, 239, .1);
+      border-bottom: 1px solid #fff;
+      color: #000;
+    }
+
+    .subject-first-top-border {
+      border-top: 1px solid rgb(219, 219, 219);
+    }
+
+    .subject li {
+      width: 14.28%;
+      padding: 10px 20px;
+      border-left: 2px solid #fff;
+      text-align: center;
+      color: #000;
+    }
+
+    .subjectRadio {
+      border-bottom-right-radius: 10px;
+    }
+
+    /* 左侧 */
+    .courses-leftHand {
+      position: absolute;
+      left: -42px;
+      top: 0px;
+      width: 96px;
+    }
+
+    .class-time li {
+      /* width: 90px; */
+      padding: 10px 18px;
+      background-color: #16baef;
+      border-right: 1px solid;
+      text-align: center;
+      border-bottom: 1px solid #fff;
+      color: #fff;
+    }
+
+    .class-time li:first-child {
+      border-top-left-radius: 10px;
+    }
+
+    .class-time li:last-child {
+      border-bottom-left-radius: 10px;
+    }
+
+    .subject-center {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    /* 拖拽选择学科的样式 */
+    .select-subject-title {
+      width: 233px;
+      height: 100%;
+      margin-right: 50px;
+      font-size: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .subject-center p {
+      margin-bottom: 10px;
+      padding: 8px 15px;
+      background-color: #16baef;
+      border-radius: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .subject-center .subject-content li {
+      float: left;
+      width: 97px;
+      margin: 9px;
+      padding: 3px 0;
+      background-color: #16baef;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="subject-center">
+    <div class="select-subject-title">
+      <p>科目</p>
+      <ul class="subject-content clearfix" id='subject-content'>
+        <li>语文</li>
+        <li>数学</li>
+        <li>物理</li>
+        <li>化学</li>
+        <li>生物</li>
+      </ul>
+    </div>
+
+    <div id="courseWrapper" class="courseWrapper">
+      <div class="courses-head ">
+        <ul class="week">
+          <li>周一</li>
+          <li>周二</li>
+          <li>周三</li>
+          <li>周四</li>
+          <li>周五</li>
+          <li>周六</li>
+          <li>周日</li>
+        </ul>
+      </div>
+      <div class="courses-content">
+        <ul class="subject subject-first-top-border">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+        <ul class="subject subjectRadio">
+          <li>语文</li>
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>化学</li>
+          <li>化学</li>
+        </ul>
+      </div>
+      <div class="courses-leftHand">
+        <ul class="class-time">
+          <li>#</li>
+          <li>第一节</li>
+          <li>第二节</li>
+          <li>第三节</li>
+          <li>第四节</li>
+          <li>第五节</li>
+          <li>第六节</li>
+          <li>第七节</li>
+          <li>第八节</li>
+          <li>第九节</li>
+          <li>第十节</li>
+          <li>第十一节</li>
+          <li>第十二节</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  let selectSubjectli = document.querySelectorAll('#subject-content li');
+  const subjectContent = document.getElementById('subject-content');
+  let subjectli = document.querySelectorAll('.subject li');
+  /* 设置学科可以拖拽 */
+  selectSubjectli.forEach((item, index) => {
+    item.setAttribute('draggable', 'true');
+    item.ondragstart = function (e) {
+      /* 拖拽的时候捕获里面的数据 */
+      const dt = e.dataTransfer;
+      dt.setData("key", index);
+    }
+  });
+
+  /* 为每个格子绑定 释放目标时触发的事件: */
+  subjectli.forEach((item, index) => {
+    item.ondragenter = function () {
+      // this.innerHTML = '请释放你的鼠标';
+
+    }
+    item.ondragover = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    item.ondrop = function (e) {
+      // console.log(item);
+      console.log(index);
+      const dt = e.dataTransfer;
+      let courseWeek = Math.floor(index / 7);
+      let courseNum = index % 7;
+      console.log(courseWeek, courseNum);
+      // console.log(e);
+      // console.log(dt.getData("key"));
+      // 如果两者相等就不发请求
+      console.log(item.innerHTML);
+      console.log(selectSubjectli[dt.getData("key")].innerHTML);
+      item.innerHTML = selectSubjectli[dt.getData("key")].innerHTML;
+      /* 当他拖拽完后，他自己也变成可拖拽的 */
+      item.setAttribute('draggable', 'true');
+
+      // dt.setData("key1", index);
+      // list.removeChild(leftli[dt.getData("key")]);
+    }
+
+    item.ondragstart = function (e) {
+      /* 拖拽的时候捕获里面的数据 */
+      const dt = e.dataTransfer;
+      dt.setData("key1", index);
+    }
+  });
+
+  subjectContent.ondragenter = function () {
+    // this.innerHTML = '请释放你的鼠标';
+  }
+  subjectContent.ondragover = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+  subjectContent.ondrop = function (e) {
+    const dt = e.dataTransfer;
+    console.log(e);
+    console.log(dt.getData("key1"));
+    subjectli[dt.getData("key1")].setAttribute('draggable', 'false');
+    subjectli[dt.getData("key1")].innerHTML = '';
+  }
+</script>
+
+</html>

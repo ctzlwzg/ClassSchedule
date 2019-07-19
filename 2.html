@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      /* justify-content: baseline; */
+      justify-content: space-between
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    #left {
+      width: 150px;
+      /* height: 300px;
+      background-color: #f00; */
+    }
+
+    ul>li {
+      width: 150px;
+      height: 30px;
+      margin: 15px 0;
+      border: 1px solid #0f0;
+      text-align: center;
+      line-height: 30px;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul id="left">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <ul id="list">
+    <li>语文</li>
+    <li>数学</li>
+    <li>英语</li>
+    <li>物理</li>
+    <li>化学</li>
+  </ul>
+</body>
+<script>
+  let oli = document.querySelectorAll('#list li');
+  let leftli = document.querySelectorAll('#left li');
+  const left = document.getElementById('left');
+  const list = document.getElementById('list');
+
+  /* 设置学科可以拖拽 */
+  oli.forEach((item, index) => {
+    item.setAttribute('draggable', 'true');
+    item.ondragstart = function (e) {
+      /* 拖拽的时候捕获里面的数据 */
+      const dt = e.dataTransfer;
+      dt.setData("key", index);
+    }
+  });
+
+  /* 为每个格子绑定 释放目标时触发的事件: */
+  leftli.forEach((item, index) => {
+    item.ondragenter = function () {
+      // this.innerHTML = '请释放你的鼠标';
+    }
+    item.ondragover = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    item.ondrop = function (e) {
+      const dt = e.dataTransfer;
+      console.log(e);
+      console.log(dt.getData("key"));
+      console.log(oli[dt.getData("key")].innerHTML);
+      item.innerHTML = oli[dt.getData("key")].innerHTML;
+      /* 当他拖拽完后，他自己也变成可拖拽的 */
+      item.setAttribute('draggable', 'true');
+
+      // dt.setData("key1", index);
+      // list.removeChild(leftli[dt.getData("key")]);
+    }
+
+    item.ondragstart = function (e) {
+      /* 拖拽的时候捕获里面的数据 */
+      const dt = e.dataTransfer;
+      dt.setData("key1", index);
+    }
+  });
+
+  list.ondragenter = function () {
+    // this.innerHTML = '请释放你的鼠标';
+  }
+  list.ondragover = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+  list.ondrop = function (e) {
+    const dt = e.dataTransfer;
+    console.log(e);
+    console.log(dt.getData("key1"));
+    leftli[dt.getData("key1")].setAttribute('draggable', 'false');
+    leftli[dt.getData("key1")].innerHTML = '';
+  }
+</script>
+
+</html>
